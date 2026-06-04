@@ -56,17 +56,12 @@ public class LibraryService {
         return 0;
     }
 
-    public int countAvailableBooks() {
-        int n = 0;
-
-    for (Book book : books) {
-        if (book.isAvailable()) {
-            n++;
-        }
-    }
-    return n;
-        // TODO: implementar contagem de livros disponíveis
-    }
+    
+    public int countAvaliableBooks() {
+    return (int) books.stream()
+                      .filter(Book::isAvailable)
+                      .count();
+}
 
     public int countUnavailableBooks() {
         // TODO: implementar contagem de livros indisponíveis
