@@ -1,4 +1,3 @@
-
 package br.edu.ifrn.qagym.util;
 
 public class TextNormalizer {
@@ -11,12 +10,9 @@ public class TextNormalizer {
     }
 
     public boolean containsIgnoreCase(String text, String search) {
-       
-        if (text == null || search == null) {
-            return false;
-        }
-        String normalizedText = normalize(text);
-        String normalizedSearch = normalize(search);
-        return normalizedText.contains(normalizedSearch);
+        // TODO: implementar busca parcial ignorando maiúsculas/minúsculas
+        return false;
     }
 }
+
+
