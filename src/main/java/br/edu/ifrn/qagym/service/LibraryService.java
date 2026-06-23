@@ -2,7 +2,7 @@ package br.edu.ifrn.qagym.service;
 
 import br.edu.ifrn.qagym.model.Book;
 import br.edu.ifrn.qagym.model.User;
-
+import br.edu.ifrn.qagym.util.TextNormalizer;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -10,6 +10,7 @@ public class LibraryService {
 
     private final List<Book> books = new ArrayList<>();
     private final List<User> users = new ArrayList<>();
+    private final TextNormalizer textNormalizer = new TextNormalizer();
 
     public void addBook(Book book) {
         books.add(book);
@@ -39,7 +40,7 @@ public class LibraryService {
     public List<Book> findBooksByTitle(String title) {
         List<Book> result = new ArrayList<>();
         for (Book book : books) {
-            if (book.getTitle().equals(title)) {
+            if (textNormalizer.containsIgnoreCase(book.getTitle(), title)) {
                 result.add(book);
             }
         }
